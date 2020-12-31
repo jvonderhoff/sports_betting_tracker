@@ -16,6 +16,12 @@ leagues = [["MLB"],
           ["NHL"],
           ["EPL","MLS"]]
 
+team_1 = ["Detroit Tigers"]
+
+team_2 = ["Minnesota Twins"]
+
+bet_type = ["Spread", "Total", "Money Line", "Parlay", "Teaser"]
+
 # Display selections 
 def showBetResults():     
         sportresult = tkinter.Label(window, text=sportvariable.get())
@@ -24,8 +30,8 @@ def showBetResults():
         leagueresult.grid(column=0, row=8)
 
 # Sport lable and selection combobox
-lbl = tkinter.Label(window, text="Sport")
-lbl.grid(column=0, row=0)
+sport_lbl = tkinter.Label(window, text="Sport")
+sport_lbl.grid(column=0, row=0)
 sportvariable = ttk.Combobox(window,value=(sports))
 sportvariable.grid(column=1, row=0, sticky='w')
 
@@ -40,12 +46,31 @@ def callback(eventObject):
     leaguevariable.config(values=leagues[index])
 
 
-# League label and  selection combobox
-lbl2 = tkinter.Label(window, text="League")
-lbl2.grid(column=0, row=1)
+# League label and selection combobox
+league_lbl = tkinter.Label(window, text="League")
+league_lbl.grid(column=0, row=1)
 leaguevariable = ttk.Combobox(window)
 leaguevariable.grid(column=1, row=1,sticky='w')
 leaguevariable.bind('<Button-1>', callback)
+
+# Team 1 label and selection combobox
+team1_lbl = tkinter.Label(window, text="Team 1")
+team1_lbl.grid(column=0, row=2)
+team1variable = ttk.Combobox(window,value=(team_1))
+team1variable.grid(column=1, row=2)
+
+# Team 2 label and selection combobox
+team2_lbl = tkinter.Label(window, text="Team 2")
+team2_lbl.grid(column=0, row=3)
+team2variable = ttk.Combobox(window,value=(team_2))
+team2variable.grid(column=1, row=3)
+
+
+# Bet type label and selection combobox
+bet_type_lbl = tkinter.Label(window, text="Bet Type")
+bet_type_lbl.grid(column=0, row=4)
+bettypevariable = ttk.Combobox(window,value=(bet_type))
+bettypevariable.grid(column=1, row=4)
 
 
 # Submit button
