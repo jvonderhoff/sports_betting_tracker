@@ -34,7 +34,8 @@ def BetResults():
         bettingteamresult = bettingteamvariable.get()
         platformresult = platformvariable.get()
         betoddsresult = betoddsvariable.get()
-        spreadresult = spreadoddsvariable.get()
+        spreadresult = spreadvariable.get()
+        
 
 # Sport lable and selection combobox
 sport_lbl = tkinter.Label(window, text="Sport")
