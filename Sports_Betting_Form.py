@@ -1,6 +1,6 @@
 import tkinter
 from tkinter import ttk
-
+from AirtableAPI import AirtableClient
 window = tkinter.Tk()
 
 window.title("Sports Betting Tracker")
@@ -15,6 +15,11 @@ leagues = [["MLB"],
           ["NFL","NCAA"],
           ["NHL"],
           ["EPL","MLS"]]
+
+#TODO put api_key and base_key in ebvironmental variable or in a file
+api_key = "key8khS01fFZYRQSv"
+base_key = "appnN7BwmXQR0uOSW"
+airtable_client = AirtableClient(api_key, base_key)
 
 team_1 = ["Detroit Tigers"]
 
@@ -35,7 +40,14 @@ def BetResults():
         platformresult = platformvariable.get()
         betoddsresult = betoddsvariable.get()
         spreadresult = spreadvariable.get()
-        
+
+        # put the input into an array of size 10, with the sequence of: 
+        # sport, league, Team1, Team2, Betting team, Bettype (spread), spread #, Bet odds, platform, status, date 
+        record = []        
+        record.append(sportresult)
+        record.append(leagueresult)
+        airtable_client.insert_airtable_rec(table_name, record)
+
 
 # Sport lable and selection combobox
 sport_lbl = tkinter.Label(window, text="Sport")
