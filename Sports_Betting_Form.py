@@ -20,6 +20,7 @@ leagues = [["MLB"],
 api_key = "key8khS01fFZYRQSv"
 base_key = "appnN7BwmXQR0uOSW"
 airtable_client = AirtableClient(api_key, base_key)
+table_name = "Bet History"
 
 team_1 = ["Detroit Tigers"]
 
@@ -46,6 +47,16 @@ def BetResults():
         record = []        
         record.append(sportresult)
         record.append(leagueresult)
+        record.append(team1result)
+        record.append(team2result)
+        record.append(bettingteamresult)
+        record.append(bettyperesult)
+        record.append(spreadresult)
+        record.append(betoddsresult)
+        record.append(platformresult)
+        # TODO: drop down for "Pending", "Win", "Looss"
+        record.append("Pending")
+        
         airtable_client.insert_airtable_rec(table_name, record)
 
 

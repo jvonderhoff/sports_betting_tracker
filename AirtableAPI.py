@@ -28,6 +28,7 @@ class AirtableClient:
             logger.info({f"Record is incomplete. Array size is less than or greter than 10"})
             return 
         
+        print(records)
 
         #TODO: grab the fields from the table or a config file and loop over instead of listed out
         rec = {
